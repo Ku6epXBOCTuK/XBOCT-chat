@@ -1,0 +1,20 @@
+ignore_merge_commits = true
+generate_mono_repository_global_tag = false
+
+pre_package_bump_hooks = [
+  "echo Upgrading {{package}} to {{version}}",
+  "cargo set-version -p {{package}} {{version}}",
+]
+
+[packages.app]
+path = "src-tauri"
+
+[packages.launcher]
+path = "launcher"
+
+[changelog]
+remote = "github.com"
+repository = "XBOCT-chat"
+path = "CHANGELOG.md"
+template = "remote"
+owner = "Ku6epXBOCTuK"
